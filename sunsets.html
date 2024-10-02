@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Page</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comic Sans MS', cursive; /* Comic Sans font */
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            background-color: #a1c4fd; /* Original background color */
+            color: #1d3557; /* Text color */
+            text-align: center; /* Center text */
+            padding: 20px; /* Add padding for spacing */
+        }
+
+        .gif-container {
+            margin-top: 20px; /* Reduced margin for the GIF */
+            opacity: 0; /* Initially invisible */
+            width: 75%;
+            height: 50%; /* Adjusted width for smaller GIF size */
+            border-radius: 20px; /* Rounded corners */
+            overflow: hidden; /* Ensures the corners are rounded */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease; /* Fade in transition */
+        }
+
+        .message {
+            opacity: 0; /* Initially invisible */
+            transition: opacity 1s ease; /* Fade in transition */
+            font-size: 2em; /* Adjust font size for visibility */
+            margin-top: 20px; /* Space above the message */
+        }
+
+        .next-button {
+            margin-top: 30px; /* Adjusted margin for visibility, moved up */
+            opacity: 0; /* Initially invisible */
+            transition: opacity 0.5s ease; /* Fade in transition */
+        }
+
+        .arrow-button {
+            border: none;
+            background-color: #457b9d;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .arrow-button:hover {
+            transform: scale(1.1);
+        }
+
+        .arrow-button::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.6);
+            animation: pulse 1.5s infinite;
+            top: -10px;
+            left: -10px;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music" src="background-music.mp3" autoplay loop></audio> <!-- Background Music -->
+
+    <!-- GIF container -->
+    <div class="gif-container" id="gifContainer">
+        <div class="tenor-gif-embed" data-postid="27528729" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+            <a href="https://tenor.com/view/sunset-smores-fire-fireplace-bonfire-gif-27528729">Sunset Smores GIF</a>
+            from <a href="https://tenor.com/search/sunset-gifs">Sunset GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+
+    <!-- Message below GIF -->
+    <div class="message" id="message">
+        We'll watch thousands of sunrise and sunsets.
+    </div>
+
+    <!-- Next button -->
+    <div class="next-button" id="nextButton">
+        <a href="talk.html">
+            <button class="arrow-button">
+                <img src="https://cdn-icons-png.flaticon.com/512/271/271226.png" alt="arrow" style="width: 30px; height: 30px;">
+            </button>
+        </a>
+    </div>
+
+    <script>
+        window.onload = () => {
+            // Fade in the GIF
+            const gifContainer = document.getElementById("gifContainer");
+            gifContainer.style.opacity = 1; // Show the GIF
+
+            // Fade in the message after a delay
+            setTimeout(() => {
+                const message = document.getElementById("message");
+                message.style.opacity = 1; // Show the message
+            }, 500); // Delay before showing the message
+
+            // Fade in the next button after the message
+            setTimeout(() => {
+                document.getElementById("nextButton").style.opacity = 1;
+            }, 1500); // Delay before showing the next button
+        };
+    </script>
+</body>
+</html>

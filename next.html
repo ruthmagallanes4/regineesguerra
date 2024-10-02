@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Forte', cursive;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(to bottom, #a1c4fd, #c2e9fb, #fbc2eb, #a6c1ee); /* Blue to pink gradient like the sky */
+        }
+
+        .word {
+            font-weight: bold;
+            color: #1d3557;
+            opacity: 0;
+            position: absolute;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        #word1 { font-size: 7em; }
+        #word2 { font-size: 6em; }
+        #word3 { font-size: 5.5em; }
+        #word4 { font-size: 5em; }
+        #word5 { font-size: 4.5em; }
+        #word6 { font-size: 6.5em; }
+        #word7 { font-size: 5.5em; }
+        #word8 { font-size: 7em; }
+
+        .gif-container {
+            margin-top: 50px;
+            opacity: 0;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease;
+        }
+
+        .next-button {
+            opacity: 0;
+            position: absolute;
+            z-index: 10;
+            transition: opacity 0.5s ease;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .arrow-button {
+            border: none;
+            background-color: #457b9d;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .arrow-button:hover {
+            transform: scale(1.1);
+        }
+
+        .arrow-button::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.6);
+            animation: pulse 1.5s infinite;
+            top: -10px;
+            left: -10px;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+        }
+
+        .intro-text {
+            font-size: 3em;
+            color: #1d3557;
+            opacity: 0;
+            position: absolute;
+            transition: opacity 0.5s ease;
+            margin-bottom: 50px; /* Spacing below the text */
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music" src="background-music.mp3" autoplay loop></audio> <!-- Background Music -->
+
+    <!-- Intro Text -->
+    <div class="intro-text" id="introText">Let Me Tell You</div>
+
+    <div class="word" id="word1">REASONS</div>
+    <div class="word" id="word2">WHY</div>
+    <div class="word" id="word3">YOU</div>
+    <div class="word" id="word4">SHOULD</div>
+    <div class="word" id="word5">ALLOW</div>
+    <div class="word" id="word6">ME</div>
+    <div class="word" id="word7">TO</div>
+    <div class="word" id="word8">COURT YOU</div>
+
+    <!-- GIF container -->
+    <div class="gif-container" id="gifContainer">
+        <div class="tenor-gif-embed" data-postid="4781830658521208423" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+            <a href="https://tenor.com/view/flowers-love-you-love-u-will-you-be-my-valentine-be-my-valentine-gif-4781830658521208423">Flowers Love You GIF</a>
+            from <a href="https://tenor.com/search/flowers-gifs">Flowers GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+
+    <!-- Next button -->
+    <div class="next-button" id="nextButton">
+        <a href="longwalks.html">
+            <button class="arrow-button">
+                <img src="https://cdn-icons-png.flaticon.com/512/271/271226.png" alt="arrow" style="width: 30px; height: 30px;">
+            </button>
+        </a>
+    </div>
+
+    <script>
+        const words = [
+            { id: 'word1' },
+            { id: 'word2' },
+            { id: 'word3' },
+            { id: 'word4' },
+            { id: 'word5' },
+            { id: 'word6' },
+            { id: 'word7' },
+            { id: 'word8' },
+        ];
+
+        function animateIntroText() {
+            const introText = document.getElementById("introText");
+            introText.style.opacity = 1; // Fade in
+            setTimeout(() => {
+                introText.style.opacity = 0; // Fade out after 3 seconds
+                animateWords(); // Start animating words after the intro text fades out
+            }, 3000); // Duration for intro text visibility
+        }
+
+        function animateWords() {
+            words.forEach((word, index) => {
+                const element = document.getElementById(word.id);
+                const gifContainer = document.getElementById("gifContainer");
+                const nextButton = document.getElementById("nextButton");
+
+                setTimeout(() => {
+                    words.forEach(w => {
+                        document.getElementById(w.id).style.opacity = 0;
+                        document.getElementById(w.id).style.transform = 'translateY(0)';
+                    });
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(-20px) scale(1.1)';
+                }, index * 2000);
+
+                setTimeout(() => {
+                    element.style.opacity = 0;
+                    element.style.transform = 'translateY(20px) scale(1)';
+                }, index * 2000 + 1500);
+
+                if (index === words.length - 1) {
+                    setTimeout(() => {
+                        gifContainer.style.opacity = 1;
+                        nextButton.style.opacity = 1;
+                    }, index * 2000 + 2000);
+                }
+            });
+        }
+
+        window.onload = animateIntroText; // Start with the intro text animation on window load
+    </script>
+</body>
+</html>

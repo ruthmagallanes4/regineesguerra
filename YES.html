@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YES Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comic Sans MS', cursive;
+            flex-direction: column;
+            background-color: #f0f8ff;
+            color: #1d3557;
+            text-align: center;
+            position: relative;
+        }
+
+        .note-container {
+            width: 60%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.2em;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .button {
+            border: none;
+            background-color: #457b9d;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* On top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            width: 300px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .modal-text {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #457b9d;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #457b9d;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Note-like placeholder -->
+    <div class="note-container">
+        Yes, I'm sorry there is no other option for you. <br><br> No, I'm kidding. Thank you for staying and reaching this part of this little website that I built for you and I hope that I made you smile. <br><br>
+        I know, I'm not really good with words kapag sasabihin ko na personally, to the point na ikaw pa nga nagvo-voice out ng gusto kong sabihin.<br><br>
+        But I'm good with this and so I wanted to use this method to ask you a question.  <br><br>
+        Regine, pwede ba kitang ligawan?
+    </div>
+
+    <!-- Buttons below the note -->
+    <div class="button-container">
+        <button class="button yes-button">YES</button>
+        <button class="button no-button">NO</button>
+    </div>
+
+    <!-- Modal for GIF pop-up -->
+    <div id="gifModal" class="modal">
+        <div class="modal-content">
+            <button class="close" id="closeModal">&times;</button>
+            <div id="modalText" class="modal-text"></div>
+            <div id="gifContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        const yesButton = document.querySelector('.yes-button');
+        const noButton = document.querySelector('.no-button');
+        const gifModal = document.getElementById('gifModal');
+        const gifContainer = document.getElementById('gifContainer');
+        const modalText = document.getElementById('modalText');
+        const closeModal = document.getElementById('closeModal');
+
+        yesButton.addEventListener('click', () => {
+            // Set the text for YES
+            modalText.textContent = "YESSSSSS! MWAH!";
+            // Load the love heart GIF for "YES"
+            gifContainer.innerHTML = `
+                <iframe src="https://tenor.com/embed/17299090175865014040" allowfullscreen></iframe>
+            `;
+            gifModal.style.display = 'flex'; // Show the modal with the GIF
+        });
+
+        noButton.addEventListener('click', () => {
+            // Set the text for NO
+            modalText.textContent = "IT'S OKAY! I'll try again next week!";
+            // Load the happy dance GIF for "NO"
+            gifContainer.innerHTML = `
+                <iframe src="https://tenor.com/embed/11781793002873718644" allowfullscreen></iframe>
+            `;
+            gifModal.style.display = 'flex'; // Show the modal with the GIF
+        });
+
+        // Close the modal when the close button is clicked
+        closeModal.addEventListener('click', () => {
+            gifModal.style.display = 'none'; // Hide the modal
+        });
+
+        // Close the modal if user clicks outside the modal content
+        window.onclick = (event) => {
+            if (event.target === gifModal) {
+                gifModal.style.display = 'none';
+            }
+        };
+    </script>
+
+</body>
+</html>

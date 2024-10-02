@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comic Sans MS', cursive; /* Comic Sans font */
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            background-color: #a1c4fd; /* Background color to match previous design */
+            color: #1d3557; /* Text color */
+            text-align: center;
+        }
+
+        .gif-container {
+            margin-bottom: 20px; /* Add space between GIF and text */
+            width: 300px; /* Increased size for the GIF */
+            height: 300px;
+            border-radius: 20px; /* Rounded corners */
+            overflow: hidden;
+        }
+
+        .content {
+            font-size: 2.5em;
+            margin-bottom: 30px; /* Space between text and buttons */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .button {
+            border: none;
+            background-color: #457b9d;
+            color: white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        .no-button {
+            position: absolute;
+        }
+
+        .no-button:hover {
+            top: calc(20% * (0.5 - Math.random())); /* Move in a random direction */
+            left: calc(20% * (0.5 - Math.random()));
+        }
+    </style>
+</head>
+<body>
+    <!-- GIF Container with rounded corners -->
+    <div class="gif-container">
+        <div class="tenor-gif-embed" data-postid="13922129864001438547" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+            <a href="https://tenor.com/view/cute-eyes-cute-aww-i-need-it-woah-gif-13922129864001438547">Cute Eyes Aww Sticker</a>
+            from <a href="https://tenor.com/search/cute+eyes-stickers">Cute Eyes Stickers</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        Will you allow me to join you on this journey?
+    </div>
+
+    <!-- Button Container -->
+    <div class="button-container">
+        <!-- YES button -->
+        <a href="YES.html">
+            <button class="button">YES</button>
+        </a>
+        
+        <!-- NO button -->
+        <button class="button no-button">NO</button>
+    </div>
+
+    <script>
+        const noButton = document.querySelector('.no-button');
+        noButton.addEventListener('mouseover', () => {
+            const randomX = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+    </script>
+</body>
+</html>

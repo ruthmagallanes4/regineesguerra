@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); /* Cutesy font from Google Fonts */
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
+        }
+
+        .gif-container {
+            margin-bottom: 20px;
+            margin-top: 100px; /* Move the GIF down by 100px */
+            width: 100%;
+            max-width: 400px; /* Limit the maximum width of the GIF */
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px; /* Rounded corners for the container */
+            overflow: hidden; /* Ensure GIF fits within rounded corners */
+        }
+
+        .text {
+            font-size: 2.5em;
+            font-family: 'Pacifico', cursive; /* Cutesy font */
+            color: #1d3557;
+            margin-bottom: 10px;
+        }
+
+        .prompt {
+            font-size: 1.5em;
+            color: #1d3557;
+            margin-bottom: 20px;
+        }
+
+        .textbox {
+            border: 2px solid #457b9d;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            width: 300px;
+            margin-bottom: 10px; /* Reduced space below the text box */
+            outline: none;
+        }
+
+        .submit-button {
+            background-color: #457b9d;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px; /* Added space above the submit button */
+            margin-bottom: 50px; /* Add margin below the button to prevent touching the page end */
+        }
+
+        .submit-button:hover {
+            background-color: #1d3557;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- GIF Placeholder from Tenor -->
+    <div class="gif-container">
+        <div class="tenor-gif-embed" data-postid="673367843275614023" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+            <a href="https://tenor.com/view/food-restaurant-egg-penguin-china-gif-673367843275614023">Food Restaurant GIF</a>
+            from <a href="https://tenor.com/search/food-gifs">Food GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+
+    <div class="text">Hold Up!</div>
+    <div class="prompt">To confirm it's you, enter your full name:</div>
+
+    <!-- Rounded Corner Textbox -->
+    <input type="text" id="nameInput" class="textbox" placeholder="Your full name">
+
+    <!-- Submit Button -->
+    <button class="submit-button" onclick="checkName()">Submit</button>
+
+    <script>
+        function checkName() {
+            const input = document.getElementById("nameInput").value;
+            const correctName = "Regine Esguerra";
+
+            if (input === correctName) {
+                // Redirect to fine.html if the name is correct
+                window.location.href = "fine.html"; // Redirect to the fine page
+            } else {
+                alert("Wrong answer");
+            }
+        }
+    </script>
+</body>
+</html>

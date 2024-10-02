@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Hello Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); /* Cutesy font from Google Fonts */
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #a8dadc; /* Nice, soft color */
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+        }
+        .tenor-gif-embed {
+            border-radius: 15px; /* Rounded corners */
+            overflow: hidden; /* Ensure GIF fits within rounded corners */
+            margin-bottom: 20px; /* Space between GIF and text */
+        }
+        h1 {
+            font-size: 3em;
+            font-family: 'Pacifico', cursive; /* Cutesy font */
+            color: #1d3557; /* Dark, contrasting color */
+            margin-bottom: 0; /* No margin below the heading */
+        }
+        .next-button {
+            width: 60px;  /* Adjust width */
+            height: 60px; /* Adjust height */
+            background-color: #457b9d; /* Button color matching the theme */
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: pulse 2s infinite; /* Pulsating effect */
+            margin-top: 10px; /* Space between text and button */
+            margin-left: 146px; /* Move button 30px to the right */
+            text-decoration: none; /* Remove underline */
+        }
+        .next-button img {
+            width: 24px; /* Size of the arrow */
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(69, 123, 157, 0.7);
+            }
+            70% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 20px rgba(69, 123, 157, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(69, 123, 157, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Slightly Smaller Embedded Tenor GIF with Rounded Corners, moved down -->
+        <div class="tenor-gif-embed" data-postid="27290851" data-share-method="host" data-aspect-ratio="1" data-width="400px">
+            <a href="https://tenor.com/view/love-happy-dance-cute-cartoon-gif-27290851">Love Happy GIF</a> from 
+            <a href="https://tenor.com/search/love-gifs">Love GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+        <h1>Hello, Regine! ❤️</h1> <!-- Added heart emoji and cutesy font -->
+        
+        <!-- Stylish Pulsating "Next" Button with Arrow Icon -->
+        <a href="next.html" class="next-button">
+            <img src="https://cdn-icons-png.flaticon.com/512/271/271226.png" alt="arrow"> <!-- Arrow Icon centered inside circle -->
+        </a>
+    </div>
+</body>
+</html>
